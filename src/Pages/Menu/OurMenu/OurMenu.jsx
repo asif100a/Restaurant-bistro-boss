@@ -14,8 +14,6 @@ const OurMenu = () => {
     const offereds = items.filter(item => item?.category === 'offered');
     const desserts = items.filter(item => item?.category === 'dessert');
     const pizzas = items.filter(item => item?.category === 'pizza');
-    const salads = items.filter(item => item?.category === 'salad');
-    const soups = items.filter(item => item?.category === 'soup');
 
     return (
         <div>
@@ -44,7 +42,7 @@ const OurMenu = () => {
                     item={desserts}
                     btn={'ORDER YOUR FAVOURITE FOOD'}
                     CoverImg={dessertImg}
-                    title={'Dessert'}
+                    title={'dessert'}
                     description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}
                 />
 
@@ -53,7 +51,7 @@ const OurMenu = () => {
                     item={pizzas}
                     btn={'ORDER YOUR FAVOURITE FOOD'}
                     CoverImg={pizzaImg}
-                    title={'Pizza'}
+                    title={'pizza'}
                     description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}
                 />
 
@@ -62,7 +60,7 @@ const OurMenu = () => {
                     item={desserts}
                     btn={'ORDER YOUR FAVOURITE FOOD'}
                     CoverImg={saladImg}
-                    title={'Salad'}
+                    title={'salad'}
                     description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}
                 />
                 {/* Soup items */}
@@ -70,7 +68,7 @@ const OurMenu = () => {
                     item={desserts}
                     btn={'ORDER YOUR FAVOURITE FOOD'}
                     CoverImg={soupImg}
-                    title={'Soup'}
+                    title={'soup'}
                     description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}
                 />
             </div>

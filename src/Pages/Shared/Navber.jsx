@@ -7,7 +7,7 @@ const Navber = () => {
         <NavLink to={'/contact_us'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Contact us</NavLink>
         <NavLink to={'/dashboard'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Dashboard</NavLink>
         <NavLink to={'/our_menu'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Our menu</NavLink>
-        <NavLink to={'/order_food'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Order food</NavLink>
+        <NavLink to={'/order_food/salad'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Order food</NavLink>
 
     </>;
 
@@ -39,14 +39,31 @@ const Navber = () => {
                         </div>
 
                         <div className="flex items-center mt-4 lg:mt-0">
-                            <button className="hidden mx-4 text-white transition-colors duration-300 transform lg:block dark:text-gray-200  dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
-                                Sign out
-                            </button>
+                            <Link to={'/sign_in'}>
+                                <button className="hidden btn btn-outline mx-4 text-white transition-colors duration-300 transform lg:block dark:text-gray-200  dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+                                    Sign in
+                                </button>
+                            </Link>
 
-                            <button type="button" className="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                                <IoMdContact className="w-10 h-10" />
-                            </button>
+                            <Link to={'sign_up'}>
+                                <button className="hidden btn btn-outline mx-4 text-white transition-colors duration-300 transform lg:block dark:text-gray-200  dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+                                    Sign up
+                                </button>
+                            </Link>
                         </div>
+
+                        {
+
+                            <div className="flex items-center mt-4 lg:mt-0 hidden">
+                                <button className="hidden mx-4 text-white transition-colors duration-300 transform lg:block dark:text-gray-200  dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+                                    Sign out
+                                </button>
+
+                                <button type="button" className="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
+                                    <IoMdContact className="w-10 h-10" />
+                                </button>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

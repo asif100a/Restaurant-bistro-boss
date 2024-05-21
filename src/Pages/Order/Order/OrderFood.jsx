@@ -1,23 +1,37 @@
-import FoodCard from '../../../Components/FoodCard/FoodCard';
 import useMenu from '../../../Hooks/useMenu';
 import orderImg from '../../../assets/shop/banner2.jpg';
 import Cover from '../../Shared/Cover/Cover';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import OrderTab from '../OrderTab/OrderTab';
+import { Helmet } from 'react-helmet-async';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 const OrderFood = () => {
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
+    const { category } = useParams();
+    const initialIndex = categories.indexOf(category);
+    const [tabIndex, setTabIndex] = useState(initialIndex)
+    console.log(tabIndex);
+
+
     const [items] = useMenu();
-    const offereds = items.filter(item => item?.category === 'offered');
     const desserts = items.filter(item => item?.category === 'dessert');
     const pizzas = items.filter(item => item?.category === 'pizza');
     const salads = items.filter(item => item?.category === 'salad');
     const soups = items.filter(item => item?.category === 'soup');
+    const drinks = items.filter(item => item?.category === 'drinks');
 
     return (
         <div className='uppercase'>
+            <Helmet>
+                <title>Food order-Restaurant Bistro Boss</title>
+            </Helmet>
+
             <Cover img={orderImg} title={'Order food'} description={'Would you like to try a dish?'} />
 
-            <Tabs className={'mt-24'}>
+            <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)} className={'mt-24'}>
                 <TabList className={'w-fit mx-auto border-b mb-6'}>
                     <Tab>Salad</Tab>
                     <Tab>Pizza</Tab>
@@ -27,23 +41,19 @@ const OrderFood = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto'>
-                        {
-                            salads.map(item => <FoodCard key={item?._id} item={item} />)
-                        }
-                    </div>
+                    <OrderTab items={salads} />
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    <OrderTab items={pizzas} />
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 3</h2>
+                    <OrderTab items={soups} />
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 4</h2>
+                    <OrderTab items={desserts} />
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 5</h2>
+                    <OrderTab items={drinks} />
                 </TabPanel>
             </Tabs>
         </div>
