@@ -44,7 +44,7 @@ const Dashboard = () => {
                             :
                             <>
                                 <li>
-                                    <NavLink to={'/dashboard/home'}><IoHomeOutline className="w-6 h-6" /> User home</NavLink>
+                                    <NavLink to={'/dashboard/user_home'}><IoHomeOutline className="w-6 h-6" /> User home</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={'/dashboard/reservation'}><IoCalendarNumberOutline className="w-6 h-6" /> User reservation</NavLink>
@@ -56,7 +56,7 @@ const Dashboard = () => {
                                     <NavLink to={'/dashboard/add_review'}><GiStarsStack className="w-6 h-6" /> Add review</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={'/dashboard/my_bookings'}><CiBookmarkCheck className="w-6 h-6" /> My bookings</NavLink>
+                                    <NavLink to={'/dashboard/payment_history'}><CiBookmarkCheck className="w-6 h-6" /> Payment history</NavLink>
                                 </li>
                             </>
                     }

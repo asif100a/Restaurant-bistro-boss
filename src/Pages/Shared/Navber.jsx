@@ -3,15 +3,24 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { GiShoppingCart } from "react-icons/gi";
 import useCarts from "../../Hooks/useCarts";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Navber = () => {
     const { user, signOutUser } = useAuth();
     const [carts] = useCarts();
+    const [isAdmin] = useAdmin();
 
     const navLinks = <>
         <NavLink to={'/'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</NavLink>
         <NavLink to={'/contact_us'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Contact us</NavLink>
-        <NavLink to={'/dashboard'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Dashboard</NavLink>
+        {
+            user && isAdmin &&
+            <NavLink to={'/dashboard/admin_home'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Dashboard</NavLink>
+        }
+        {
+            user && !isAdmin &&
+            <NavLink to={'/dashboard/user_home'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Dashboard</NavLink>
+        }
         <NavLink to={'/our_menu'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Our menu</NavLink>
         <NavLink to={'/order_food/salad'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Order food</NavLink>
         <NavLink to={'/secret'} className="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Secret page</NavLink>

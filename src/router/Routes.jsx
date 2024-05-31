@@ -16,6 +16,9 @@ import MenageItems from "../Pages/Dashboard/MenageItems/MenageItems";
 import UpdateItem from "../Pages/Dashboard/MenageItems/UpdateItem";
 import AdminRoute from "../PrivateRoute/AdminRoute";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 
 const routes = createBrowserRouter([
     {
@@ -56,6 +59,10 @@ const routes = createBrowserRouter([
         children: [
             // User's routes
             {
+                path: '/dashboard/user_home',
+                element: <UserHome />
+            },
+            {
                 path: '/dashboard/carts',
                 element: <Carts />
             },
@@ -63,8 +70,16 @@ const routes = createBrowserRouter([
                 path: '/dashboard/payment',
                 element: <Payment />
             },
+            {
+                path: '/dashboard/payment_history',
+                element: <PaymentHistory />
+            },
 
             // Admin routes
+            {
+                path: '/dashboard/admin_home',
+                element: <AdminRoute><AdminHome /></AdminRoute>
+            },
             {
                 path: '/dashboard/add_items',
                 element: <AdminRoute><AddItems /></AdminRoute>
@@ -76,7 +91,7 @@ const routes = createBrowserRouter([
             {
                 path: '/dashboard/update_item/:id',
                 element: <AdminRoute><UpdateItem /></AdminRoute>,
-                loader: ({params}) => fetch(`http://localhost:7000/menu/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-bistro-boss.vercel.app/menu/${params.id}`)
             },
             {
                 path: '/dashboard/all_users',

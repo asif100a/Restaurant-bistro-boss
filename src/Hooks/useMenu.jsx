@@ -9,7 +9,7 @@ const useMenu = () => {
     const axiosPublic = useAxiosPublic();
 
     // useEffect(() => {
-    //     fetch('http://localhost:7000/menu')
+    //     fetch('https://restaurant-bistro-boss.vercel.app/menu')
     //         .then(res => res.json())
     //         .then(data => {
     //             setItems(data);

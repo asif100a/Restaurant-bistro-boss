@@ -69,6 +69,7 @@ const AuthProvider = ({ children }) => {
                         // Set token in the localStorage
                         if (data?.token) {
                             localStorage.setItem('access-token', data?.token);
+                            setIsLoading(false);
                         }
 
                     } catch (error) {
@@ -79,9 +80,10 @@ const AuthProvider = ({ children }) => {
 
             } else {
                 localStorage.removeItem('access-token');
+                setIsLoading(false);
             }
 
-            setIsLoading(false);
+            
 
            
         })

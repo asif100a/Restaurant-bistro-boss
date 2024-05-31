@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:7000',
+    baseURL: 'https://restaurant-bistro-boss.vercel.app',
 });
 
 const useAxiosSecure = () => {
@@ -24,11 +24,11 @@ const useAxiosSecure = () => {
 
     }, async function(error) {
         // if error sign out the user and move to the sign in page
-        // if(error.response.status === 401 || error.response.status === 403) {
-        //     await signOutUser();
-        //     navigate('/sign_in');
-        // }
-        // return Promise.reject(error);
+        if(error.response.status === 401 || error.response.status === 403) {
+            await signOutUser();
+            navigate('/sign_in');
+        }
+        return Promise.reject(error);
     });
     
     return axiosSecure;
